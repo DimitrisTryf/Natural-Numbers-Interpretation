@@ -1,9 +1,6 @@
 package org.example.phonenumbers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public abstract class PhoneNumber {
@@ -14,6 +11,13 @@ public abstract class PhoneNumber {
     public PhoneNumber(String phoneNumber) {
         this.phoneNumber = new ArrayList<>();
         this.phoneNumber.addAll(Arrays.asList(phoneNumber.split(" ")));
+        this.phoneNumber.removeAll(Arrays.asList("", null));
+
+        this.phoneNumber.forEach(pn ->{
+            if(pn.length()>3){
+                throw new UnsupportedOperationException("4-digit input not supported");
+            }
+        });
     }
 
     /**
@@ -33,6 +37,12 @@ public abstract class PhoneNumber {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = new ArrayList<>();
         this.phoneNumber.addAll(Arrays.asList(phoneNumber.split(" ")));
+        this.phoneNumber.removeAll(Arrays.asList("", null));
+        this.phoneNumber.forEach(pn ->{
+            if(pn.length()>3){
+                throw new UnsupportedOperationException("4-digit input not supported");
+            }
+        });
     }
 
     /**

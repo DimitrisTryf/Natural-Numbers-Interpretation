@@ -38,9 +38,9 @@ public class DigitManager {
     private List<String> manageDoubleDigit(String digit, String followingDigit) {
         List<String> newDigits = new ArrayList<>();
         newDigits.add(digit);
-        if (followingDigit.length() == 1 && digit.charAt(1) == '0') {
+        if ((followingDigit.length() == 1 && digit.charAt(1) == '0')&& (digit.charAt(0) != '1' || (!followingDigit.equals("1") && !followingDigit.equals("2")))){
             newDigits.add(Character.toString(digit.charAt(0)));
-        } else if (digit.charAt(1) != '0') {
+        } else if (digit.charAt(1) != '0' && !digit.equals("11") && !digit.equals("12")) {
             newDigits.add(digit.charAt(0) + "0" + digit.charAt(1));
         }
         return newDigits;
