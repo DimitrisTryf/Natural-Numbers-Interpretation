@@ -3,11 +3,13 @@ package org.example.phonenumbers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public abstract class PhoneNumber {
 
     protected List<String> phoneNumber;
+    protected static Map<String, Integer> prefixesLengths;
 
     public PhoneNumber(String phoneNumber) {
         this.phoneNumber = new ArrayList<>();
@@ -44,5 +46,9 @@ public abstract class PhoneNumber {
                 .map(String::valueOf)
                 .collect(Collectors.joining());
     }
+
+    public abstract void showCurrentPhoneNumberValidity();
+
+    public abstract void showPhoneNumberAmbiguitiesValidity();
 
 }
