@@ -9,13 +9,6 @@ public class GreekPhoneNumber extends PhoneNumber {
 
     private Map<String, Boolean> numberCheckedAmbiguities;
 
-    static {
-        prefixesLengths = new HashMap<>();
-        prefixesLengths.put("2", 10);
-        prefixesLengths.put("69", 10);
-        prefixesLengths.put("00302", 14);
-        prefixesLengths.put("003069", 14);
-    }
 
     /**
      * Creates a phone number, inserting a List of String of the digit groups given
@@ -24,6 +17,16 @@ public class GreekPhoneNumber extends PhoneNumber {
      */
     public GreekPhoneNumber(String phoneNumber) {
         super(phoneNumber);
+        initializePrefixes();
+    }
+
+    /**initializes the prefixes and their lengths for the current phone number*/
+    private void initializePrefixes() {
+        prefixesLengths = new HashMap<>();
+        prefixesLengths.put("2", 10);
+        prefixesLengths.put("69", 10);
+        prefixesLengths.put("00302", 14);
+        prefixesLengths.put("003069", 14);
     }
 
     /**

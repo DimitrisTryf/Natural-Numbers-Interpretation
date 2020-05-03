@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public abstract class PhoneNumber {
 
     protected List<String> phoneNumber;
-    protected static Map<String, Integer> prefixesLengths;
+    protected Map<String, Integer> prefixesLengths;
 
     public PhoneNumber(String phoneNumber) {
         this.phoneNumber = new ArrayList<>();

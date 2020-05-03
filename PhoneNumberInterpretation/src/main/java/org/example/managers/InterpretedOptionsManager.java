@@ -29,6 +29,7 @@ public class InterpretedOptionsManager {
     /**
      * calculates and return the current number`s ambiguities
      *
+     * @param phoneNumber o phone number object
      * @return the current number`s ambiguities
      */
     public List<String> interpretNumbers(PhoneNumber phoneNumber) {
