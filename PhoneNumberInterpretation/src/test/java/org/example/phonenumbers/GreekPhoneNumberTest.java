@@ -26,14 +26,6 @@ public class GreekPhoneNumberTest {
     }
 
     @Test
-    public void setPhoneNumber() {
-        GreekPhoneNumber phoneNumber = new GreekPhoneNumber("");
-        phoneNumber.setPhoneNumber("69 7 55 732 11");
-        List<String> expected = Arrays.asList("69","7","55","732","11");
-        assertEquals(expected,phoneNumber.getPhoneNumber());
-    }
-
-    @Test
     public void showCurrentPhoneNumberValidity(){
         GreekPhoneNumber phoneNumber = new GreekPhoneNumber("69 7 55 732 11");
 

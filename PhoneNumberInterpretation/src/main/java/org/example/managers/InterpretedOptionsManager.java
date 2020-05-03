@@ -1,7 +1,5 @@
 package org.example.managers;
 
-import org.example.phonenumbers.PhoneNumber;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,12 +27,10 @@ public class InterpretedOptionsManager {
     /**
      * calculates and return the current number`s ambiguities
      *
-     * @param phoneNumber o phone number object
+     * @param interpretedOptions a List of Lists of all the phone number`s digits ambiguities
      * @return the current number`s ambiguities
      */
-    public List<String> interpretNumbers(PhoneNumber phoneNumber) {
-        DigitManager digitManager = new DigitManager();
-        List<List<String>> interpretedOptions = digitManager.getDigitInterpretations(phoneNumber.getPhoneNumber());
+    public List<String> interpretNumbers(List<List<String>> interpretedOptions) {
 
         List<String> interpretedPhoneNumbers = new ArrayList<>();
         generatePermutations(interpretedOptions, interpretedPhoneNumbers, 0, "");

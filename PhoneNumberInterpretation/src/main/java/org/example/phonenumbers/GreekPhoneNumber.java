@@ -1,5 +1,6 @@
 package org.example.phonenumbers;
 
+import org.example.managers.DigitManager;
 import org.example.managers.InterpretedOptionsManager;
 import org.example.validators.PhoneNumberValidator;
 
@@ -47,8 +48,17 @@ public class GreekPhoneNumber extends PhoneNumber {
         if (Objects.isNull(numberCheckedAmbiguities)) {
             PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
             InterpretedOptionsManager interpretedOptionsManager = new InterpretedOptionsManager();
+            DigitManager digitManager = new DigitManager();
+            List<String> toInterpret = new ArrayList<>();
+            for(String str : this.phoneNumber){
+                toInterpret.add(str);
+                if(str.endsWith("12")|| str.endsWith("11")){
+                    toInterpret.add("unambiguous");
+                }
+            }
+            List<List<String>> interpretedOptions = digitManager.getDigitInterpretations(toInterpret);
 
-            this.numberCheckedAmbiguities = phoneNumberValidator.validateNumberAmbiguities(interpretedOptionsManager.interpretNumbers(this), prefixesLengths);
+            this.numberCheckedAmbiguities = phoneNumberValidator.validateNumberAmbiguities(interpretedOptionsManager.interpretNumbers(interpretedOptions), prefixesLengths);
         }
         this.numberCheckedAmbiguities.keySet().forEach(number ->
                 System.out.println(this.numberCheckedAmbiguities.get(number) ? number + " [phone number: VALID]" : number + " [phone number: INVALID]"));
